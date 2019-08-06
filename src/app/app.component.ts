@@ -1,10 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserInfoService } from './services/user-info.service';
+
+export class user{
+  constructor(public  username:string,public  userrole:string){
+
+  }
+}
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'UserAuthorizer';
+  userIn:user;
+  userList:user[];
+
+  constructor(private userServe:UserInfoService){
+
+  }
+
+  ngOnInit(){
+    this.userList=this.userServe.getUsers();
+    
+    console.log(this.userServe.getUsers());
+    console.log("userIn");
+  }
+
+  OnUser(userNm: string){
+    
+  
+  this.userIn=this.userServe.getUser(userNm.toLowerCase());
+  console.log(this.userIn.username);
+
+  }
+
 }
