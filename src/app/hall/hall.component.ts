@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HallComponent implements OnInit {
 
-  valuetext="you might be naresh";
+  valuetext="you might be suresh";
 
   constructor() { }
 
